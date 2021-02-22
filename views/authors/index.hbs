@@ -24,14 +24,21 @@
                 </tr>
             </thead>
             <tbody>
+                {{#each authors}}
+					{{#dataValues}}
                     <tr>
+                        <td>{{ this.name }}</td>
+                        <td>{{ this.adress }}</td>
+                        <td>{{ this.telephon }}</td>
                         <td>
-                            <form action="" method="post">
-                                <a href="" class="btn btn-info  rounded-circle"><i class="fas fa-pen"></i> </a>
+                            <form action="/authors/delete/{{ this.id }}" method="post">
+                                <a href="/authors/edit/{{ this.id }}" class="btn btn-info  rounded-circle"><i class="fa fa-pencil"></i> </a>
                                 <button type="submit" class="btn btn-danger  rounded-circle"><i class="fa fa-trash"></i> </button>
                             </form>
                         </td>
                     </tr>
+                {{/dataValues}}
+                {{/each}}
             </tbody>
         </table>
     </div>
