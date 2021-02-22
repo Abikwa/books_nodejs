@@ -1,0 +1,45 @@
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-users"></em>
+				</a></li>
+				<li class="active">new author</li>
+			</ol>
+		</div><!--/.row-->
+        
+<div class="card mb-4 mt-5">
+    <div class="card-body">
+
+        <a href="/authors" class="btn btn-info">Authors</a>
+        <div class="panel-body">
+        {{#if message}}
+            <div class="row">
+                <div class="col-md-8 alert alert-{{ type }}">{{ message }}</div>
+                <div class="col-md-4"></div>
+            </div>
+        {{/if}}
+        <form action="/authors" method="POST" class="row">
+            <div class="col-md-3">
+                <label for="name"> Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ data.dataValues.name }}"
+                    placeholder="Enter authorname" aria-describedby="helpId">
+                <input type="hidden" name="id" value="{{ data.dataValues.id }}">
+            </div>
+            <div class="col-md-3">
+                <label for="Adress"> Adress</label>
+                <input type="text" name="adress" id="Adress" class="form-control" value="{{ data.dataValues.adress }}"
+                    placeholder="Enter author Adress" aria-describedby="helpId">
+            </div>
+                <div class="col-md-3">
+                <label for="telephon"> Telephon</label>
+                <input type="text" name="telephon" id="telephon" class="form-control" value="{{ data.dataValues.telephon }}"
+                    placeholder="Enter Author telephon" aria-describedby="helpId">
+            </div>
+            <div class="col-md-3">
+                <label for=""><br></label><br>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
