@@ -104,12 +104,15 @@ router.post("/authors/edit/:id", function (req, res, next) {
         Author.update(req.body, {
           where: { id: id },
         })
-        res.redirect("/authors/edit",{
-          data: data,
-          type: "success",
-          message: "Author updated succesfull !",
+       
+        Author.findByPk(null)
+        .then((data) => {
+          res.render("authors/create", {
+            type: "success",
+            message: "Author successfull updated !",
+          });
         });
-
+        
       }
       else
       {
